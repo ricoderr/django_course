@@ -2,6 +2,7 @@ from django.db import models
 
 class Collection(models.Model):
     title = models.CharField(max_length=255)
+    featured_product = models.ForeignKey('Product', on_delete=models.SET_NULL , null=True , related_name='+')
 
 class Promotion(models.Model):
     discription = models.CharField(max_length=255)
@@ -48,6 +49,9 @@ class Order(models.Model):
     customer = models.Foreignkey(Customer, on_delete = models.PROTECT)
 
 
+class Cart(models.Model):
+    created_at = models.DateTimeField(auto_now=True)
+    
 class OrderItem(models.Model):
     title = models.CharField(max_length=255)
     order = models.ForeignKey(Order, on_delete=models.PROTECT)
@@ -55,8 +59,6 @@ class OrderItem(models.Model):
     quantity = models.PositiveSmallIntegerField()
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
 
-class Cart(models.Model):
-    created_at = models.DateTimeField(auto_now=True)
     
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
