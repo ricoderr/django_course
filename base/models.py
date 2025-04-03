@@ -30,10 +30,10 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     Email = models.EmailField(unique=True)
-    phone = models.IntegerField(max_length=255)
+    phone = models.IntegerField()
     birth_date = models.DateField(null = True)
     membership = models.CharField(max_length=1 , choices=MEMBERSHIP_CHOICES , default = MEMBERSHIP_BRONZE)
-
+    
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = 'P'
     PAYMENT_STATUS_COMPLETE = 'C'
