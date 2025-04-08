@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'learning.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': str(BASE_DIR / 'django_course'),
+        'NAME':  'django_course',
         'HOST': 'localhost', 
         'USER': 'root', 
         'PASSWORD': 'abxyxyab.,'
